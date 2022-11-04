@@ -1,7 +1,8 @@
+import filters
+import handlers
+import middlewares
 from aiogram import executor
-
-from loader import dp, db
-import middlewares, filters, handlers
+from loader import db, dp
 from utils.notify_admins import on_startup_notify
 from utils.set_bot_commands import set_default_commands
 
@@ -12,7 +13,7 @@ async def on_startup(dispatcher):
 
     # Ma'lumotlar bazasini yaratamiz:
     try:
-        db.create_table_users()
+        db.create_product_table()
     except Exception as err:
         print(err)
 
